@@ -14,7 +14,6 @@ app.get('/usuario', function (req, res) {
 
   let limit = req.query.limit || 5;
   limit = Number(limit)
-  // let to = req.query.to || 0;
 
   User.find({ status: true }, 'name email role status google img')
   .skip(from)
@@ -26,8 +25,6 @@ app.get('/usuario', function (req, res) {
           err
         });
       }
-
-      console.log('USER: ', users[0])
 
       User.count({ status: true }, (err, total) => {
         res.json({
