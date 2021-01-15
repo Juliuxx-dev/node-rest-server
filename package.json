@@ -1,0 +1,22 @@
+{
+  "name": "restserver",
+  "version": "1.0.0",
+  "engines": {
+    "node": "15.0.1"
+  },
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/server.js"
+  },
+  "keywords": [],
+  "author": "Julio Osuna",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "mongoose": "^5.11.8",
+    "mongoose-unique-validator": "^2.0.3",
+    "underscore": "^1.12.0"
+  }
+}
