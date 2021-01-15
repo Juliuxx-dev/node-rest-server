@@ -1,5 +1,5 @@
 {
-  "name": "restserver",
+  "name": "node-rest-server",
   "version": "1.0.0",
   "engines": {
     "node": "15.0.1"
