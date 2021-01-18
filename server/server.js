@@ -12,7 +12,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
-app.use( require('./routes/user'));
+// routes config
+app.use( require('./routes/index'));
 
 mongoose.connect(process.env.URLDB, {
   useNewUrlParser: true,
@@ -26,5 +27,5 @@ mongoose.connect(process.env.URLDB, {
 });
 
 app.listen(process.env.PORT, () => {
-  console.log(`Escuchando desde puerto ${process.env.PORT}`);
+  console.log(`Listening from port: ${process.env.PORT}`);
 });

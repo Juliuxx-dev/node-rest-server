@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const User = require('../models/user');
+const { validateToken, isAdmin } = require('../middlewares/authentication');
 const bcrypt = require('bcrypt');
 const _ = require('underscore');
 
@@ -8,7 +9,7 @@ app.get('/', function (req, res) {
   res.json('Home usuario');
 });
 
-app.get('/usuario', function (req, res) {
+app.get('/usuario', validateToken, (req, res) => {
   let from = req.query.from || 0;
   from = Number(from);
 
@@ -37,7 +38,7 @@ app.get('/usuario', function (req, res) {
     });
 });
 
-app.post('/usuario', function (req, res) {
+app.post('/usuario', [validateToken, isAdmin], (req, res) => {
   let body = req.body;
 
   let user = new User({
@@ -62,7 +63,7 @@ app.post('/usuario', function (req, res) {
   });
 });
 
-app.put('/usuario/:id', function (req, res) {
+app.put('/usuario/:id', [validateToken, isAdmin], (req, res) => {
   let id = req.params.id;
   let body = _.pick(req.body, ['name', 'email', 'img', 'role', 'status']);
 
@@ -82,7 +83,7 @@ app.put('/usuario/:id', function (req, res) {
 
 });
 
-app.delete('/usuario/:id', function (req, res) {
+app.delete('/usuario/:id', [validateToken, isAdmin], (req, res) => {
   let id = req.params.id;
 
   User.findByIdAndUpdate(id, { status: false }, { new: true }, (err, user) => {
