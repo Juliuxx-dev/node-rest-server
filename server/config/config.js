@@ -39,7 +39,7 @@ process.env.AUTH_SEED = process.env.AUTH_SEED || 'dev-seed';
  * =============================
  * Data Base
  * =============================
- */
+*/
 
 let urlDB;
 
@@ -50,3 +50,11 @@ if ( process.env.NODE_ENV === 'dev' ) {
 }
 
 process.env.URLDB = urlDB;
+
+/**
+ * =============================
+ * Google Client ID
+ * =============================
+*/
+
+process.env.CLIENT_ID = process.env.CLIENT_ID || '1008969614103-vkc5svkrejls0h6pg8g3mfoect62d418.apps.googleusercontent.com';
