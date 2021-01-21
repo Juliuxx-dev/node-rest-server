@@ -215,7 +215,7 @@ app.delete('/product/:id', validateToken, (req, res) => {
 
     return res.json({
       ok: true,
-      message: 'The product as been removed'
+      message: 'The product has been removed'
     })
 
   });
