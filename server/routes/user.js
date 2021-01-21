@@ -33,7 +33,7 @@ app.get('/usuario', validateToken, (req, res) => {
           users,
           total
         });
-      })
+      });
 
     });
 });
@@ -56,7 +56,7 @@ app.post('/usuario', [validateToken, isAdmin], (req, res) => {
       });
     }
 
-    res.json({
+    res.status(201).json({
       ok: true,
       user: userDB
     });
