@@ -28,6 +28,10 @@ let productSchema = new Schema({
   user: {
     type: ObjectId, ref: 'User',
     required: true
+  },
+  img: {
+    type: String,
+    required: false
   }
 });
 

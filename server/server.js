@@ -14,9 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // public folder
-// app.use(express.static(path.resolve(__dirname + '../public/')));
 app.use(express.static(path.resolve(__dirname, '../public')));
-// app.use(express.static(__dirname + '../public/'));
 
 // routes config
 app.use( require('./routes/index'));
