@@ -32,7 +32,7 @@ app.post('/login', (req, res) => {
         err: {
           message: 'User or password incorrect'
         }
-      });  
+      });
     }
     
     let token = jwt.sign({
